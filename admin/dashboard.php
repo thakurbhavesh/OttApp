@@ -154,7 +154,7 @@ elseif ($current_hour >= 12 && $current_hour < 17) $greeting = 'Good Afternoon';
                     </div>
                 </div>
             </div>
-            <div class="col-xl-2 col-md-4">
+            <!-- <div class="col-xl-2 col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
                         <h6 class="mb-0">Total Views</h6>
@@ -162,7 +162,7 @@ elseif ($current_hour >= 12 && $current_hour < 17) $greeting = 'Good Afternoon';
                         <i class="fas fa-eye"></i>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-xl-2 col-md-4">
                 <div class="card">
                     <div class="card-body text-center">
