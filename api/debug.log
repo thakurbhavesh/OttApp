@@ -1,0 +1,875 @@
+[2025-08-31 09:16:56] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-03
+    [status] => active
+)
+
+[2025-08-31 09:16:56] Processed duration: 90 minutes
+[2025-08-31 09:16:56] Processed release_date: 2025-09-03
+[2025-08-31 09:16:56] Content updated successfully with release_date: 2025-09-03
+[2025-08-31 09:17:14] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 6
+    [title] => Once Upon A Time
+    [description] => <p>ghhhh</p>
+    [category_id] => 9
+    [language_id] => 2
+    [preference_id] => 5
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 40 min
+    [release_date] => 2025-09-05
+    [status] => active
+)
+
+[2025-08-31 09:17:14] Processed duration: 40 minutes
+[2025-08-31 09:17:14] Processed release_date: 2025-09-05
+[2025-08-31 09:17:14] Content updated successfully with release_date: 2025-09-05
+[2025-08-31 09:18:12] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-05
+    [status] => active
+)
+
+[2025-08-31 09:18:12] Processed duration: 90 minutes
+[2025-08-31 09:18:12] Processed release_date: 2025-09-05
+[2025-08-31 09:18:12] Content updated successfully with release_date: 2025-09-05
+[2025-08-31 09:18:30] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-06
+    [status] => active
+)
+
+[2025-08-31 09:18:30] Processed duration: 90 minutes
+[2025-08-31 09:18:30] Processed release_date: 2025-09-06
+[2025-08-31 09:18:30] Content updated successfully with release_date: 2025-09-06
+[2025-08-31 09:20:11] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 6
+    [title] => Once Upon A Time
+    [description] => <p>ghhhh</p>
+    [category_id] => 9
+    [language_id] => 2
+    [preference_id] => 5
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 40 min
+    [release_date] => 2025-09-05
+    [status] => active
+)
+
+[2025-08-31 09:20:11] Processed duration: 40 minutes
+[2025-08-31 09:20:11] Processed release_date: 2025-09-05
+[2025-08-31 09:20:11] Content updated successfully with release_date: 2025-09-05
+[2025-08-31 09:22:43] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 6
+    [title] => Once Upon A Time
+    [description] => <p>ghhhh</p>
+    [category_id] => 9
+    [language_id] => 2
+    [preference_id] => 5
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 40 min
+    [release_date] => 2025-09-04
+    [status] => active
+)
+
+[2025-08-31 09:22:43] Processed duration: 40 minutes
+[2025-08-31 09:22:43] Processed release_date: 2025-09-04
+[2025-08-31 09:22:43] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 09:24:10] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-08-31T13:54
+    [status] => active
+)
+
+[2025-08-31 09:24:10] Processed duration: 90 minutes
+[2025-08-31 09:24:10] Processed release_date: 2025-08-31
+[2025-08-31 09:24:10] Content updated successfully with release_date: 2025-08-31
+[2025-08-31 09:24:22] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 5
+    [title] => Rose Garden
+    [description] => <p>AAA</p>
+    [category_id] => 2
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => paid
+    [industry] => Bollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 2 min
+    [release_date] => 2025-09-04T12:58
+    [status] => active
+)
+
+[2025-08-31 09:24:22] Processed duration: 2 minutes
+[2025-08-31 09:24:22] Processed release_date: 2025-09-04
+[2025-08-31 09:24:22] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 09:25:17] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-08-31T00:00
+    [status] => active
+)
+
+[2025-08-31 09:25:17] Processed duration: 90 minutes
+[2025-08-31 09:25:17] Processed release_date: 2025-08-31
+[2025-08-31 09:25:17] Content updated successfully with release_date: 2025-08-31
+[2025-08-31 09:25:34] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-04T00:03
+    [status] => active
+)
+
+[2025-08-31 09:25:34] Processed duration: 90 minutes
+[2025-08-31 09:25:34] Processed release_date: 2025-09-04
+[2025-08-31 09:25:34] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 09:25:50] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-04T00:03
+    [status] => active
+)
+
+[2025-08-31 09:25:50] Processed duration: 90 minutes
+[2025-08-31 09:25:50] Processed release_date: 2025-09-04
+[2025-08-31 09:25:50] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 09:27:00] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 5
+    [title] => Rose Garden
+    [description] => <p>AAA</p>
+    [category_id] => 2
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => paid
+    [industry] => Bollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 2 min
+    [release_date] => 2025-09-04T01:03
+    [status] => active
+)
+
+[2025-08-31 09:27:00] Processed duration: 2 minutes
+[2025-08-31 09:27:00] Processed release_date: 2025-09-04
+[2025-08-31 09:27:00] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 09:30:39] Add Content - POST Data: Array
+(
+    [action] => add_content
+    [title] => The Doorman
+    [description] => A woman returns from combat and befriends a family in NYC. A gang of thieves plot to take the family's valuables, and she is all that stands between them and their lives
+    [category_id] => 18
+    [language_id] => 5
+    [preference_id] => 1
+    [plan] => paid
+    [industry] => Punjabi
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-06T13:00
+)
+
+[2025-08-31 09:30:39] Processed duration: 90 minutes
+[2025-08-31 09:30:39] Processed release_date: 2025-09-06
+[2025-08-31 09:30:39] Content added successfully with release_date: 2025-09-06
+[2025-08-31 09:31:23] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 7
+    [title] => The Doorman
+    [description] => <p>A woman returns from combat and befriends a family in NYC. A gang of thieves plot to take the family\'s valuables, and she is all that stands between them and their lives</p>
+    [category_id] => 18
+    [language_id] => 5
+    [preference_id] => 1
+    [plan] => paid
+    [industry] => Punjabi
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-04T13:01
+    [status] => active
+)
+
+[2025-08-31 09:31:23] Processed duration: 90 minutes
+[2025-08-31 09:31:23] Processed release_date: 2025-09-04
+[2025-08-31 09:31:23] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 09:35:17] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 6
+    [title] => Once Upon A Time
+    [description] => <p>ghhhh</p>
+    [category_id] => 9
+    [language_id] => 2
+    [preference_id] => 5
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 40 min
+    [release_date] => 2025-09-30T00:00
+    [status] => active
+)
+
+[2025-08-31 09:35:17] Processed duration: 40 minutes
+[2025-08-31 09:35:17] Processed release_date: 2025-09-30
+[2025-08-31 09:35:17] Content updated successfully with release_date: 2025-09-30
+[2025-08-31 09:35:30] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-04T06:05
+    [status] => active
+)
+
+[2025-08-31 09:35:30] Processed duration: 90 minutes
+[2025-08-31 09:35:30] Processed release_date: 2025-09-04
+[2025-08-31 09:35:30] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 09:39:18] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-05T13:09
+    [status] => active
+)
+
+[2025-08-31 09:39:18] Processed duration: 90 minutes
+[2025-08-31 09:39:18] Processed release_date: 2025-09-05
+[2025-08-31 09:39:18] Content updated successfully with release_date: 2025-09-05
+[2025-08-31 09:39:33] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-08-31T13:09
+    [status] => active
+)
+
+[2025-08-31 09:39:33] Processed duration: 90 minutes
+[2025-08-31 09:39:33] Processed release_date: 2025-08-31
+[2025-08-31 09:39:33] Content updated successfully with release_date: 2025-08-31
+[2025-08-31 09:40:02] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 60
+    [release_date] => 2025-08-31T13:09
+    [status] => active
+)
+
+[2025-08-31 09:40:02] Processed duration: 0 minutes
+[2025-08-31 09:40:02] Processed release_date: 2025-08-31
+[2025-08-31 09:40:02] Content updated successfully with release_date: 2025-08-31
+[2025-08-31 09:40:17] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-06T20:10
+    [status] => active
+)
+
+[2025-08-31 09:40:17] Processed duration: 90 minutes
+[2025-08-31 09:40:17] Processed release_date: 2025-09-06
+[2025-08-31 09:40:17] Content updated successfully with release_date: 2025-09-06
+[2025-08-31 10:05:30] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-05T13:35
+    [status] => inactive
+)
+
+[2025-08-31 10:05:30] Processed duration: 90 minutes
+[2025-08-31 10:05:30] Processed release_date: 2025-09-05
+[2025-08-31 10:05:30] Content updated successfully with release_date: 2025-09-05
+[2025-08-31 10:06:08] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 7
+    [title] => The Doorman
+    [description] => <p>A woman returns from combat and befriends a family in NYC. A gang of thieves plot to take the family\\\'s valuables, and she is all that stands between them and their lives</p>
+    [category_id] => 18
+    [language_id] => 5
+    [preference_id] => 1
+    [plan] => paid
+    [industry] => Punjabi
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-06T13:36
+    [status] => active
+)
+
+[2025-08-31 10:06:08] Processed duration: 90 minutes
+[2025-08-31 10:06:08] Processed release_date: 2025-09-06
+[2025-08-31 10:06:08] Content updated successfully with release_date: 2025-09-06
+[2025-08-31 10:07:42] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [plan] => free
+    [industry] => Hollywood
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 1 hrs 30 min
+    [release_date] => 2025-09-26
+    [status] => inactive
+)
+
+[2025-08-31 10:07:42] Processed duration: 90 minutes
+[2025-08-31 10:07:42] Processed release_date: 2025-09-26
+[2025-08-31 10:07:42] Content updated successfully with release_date: 2025-09-26
+[2025-08-31 10:31:29] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 6
+    [title] => Once Upon A Time
+    [description] => <p>ghhhh</p>
+    [main_category_id] => 3
+    [category_id] => 9
+    [language_id] => 2
+    [preference_id] => 5
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 40
+    [release_date] => 2025-09-30
+    [plan] => free
+    [industry] => Hollywood
+    [status] => active
+)
+
+[2025-08-31 10:31:29] Processed duration: 0 minutes
+[2025-08-31 10:31:29] Processed release_date: 2025-09-30
+[2025-08-31 10:31:29] Content updated successfully with release_date: 2025-09-30
+[2025-08-31 10:31:52] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 7
+    [title] => The Doorman
+    [description] => <p>A woman returns from combat and befriends a family in NYC. A gang of thieves plot to take the family\\\\\\\'s valuables, and she is all that stands between them and their lives</p>
+    [main_category_id] => 3
+    [category_id] => 18
+    [language_id] => 5
+    [preference_id] => 1
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 90
+    [release_date] => 2025-09-06
+    [plan] => free
+    [industry] => International
+    [status] => active
+)
+
+[2025-08-31 10:31:52] Processed duration: 0 minutes
+[2025-08-31 10:31:52] Processed release_date: 2025-09-06
+[2025-08-31 10:31:52] Content updated successfully with release_date: 2025-09-06
+[2025-08-31 10:33:24] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 5
+    [title] => Rose Garden
+    [description] => <p>AAA</p>
+    [main_category_id] => 1
+    [category_id] => 2
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 2
+    [release_date] => 2025-09-04
+    [plan] => paid
+    [industry] => Bollywood
+    [status] => active
+)
+
+[2025-08-31 10:33:24] Processed duration: 0 minutes
+[2025-08-31 10:33:24] Processed release_date: 2025-09-04
+[2025-08-31 10:33:24] Content updated successfully with release_date: 2025-09-04
+[2025-08-31 10:34:41] Add Content - POST Data: Array
+(
+    [action] => add_content
+    [title] => a
+    [description] => s
+    [main_category_id] => 1
+    [category_id] => 1
+    [language_id] => 6
+    [preference_id] => 1
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 60
+    [release_date] => 2025-09-02
+    [plan] => free
+    [industry] => Sandalwood (South - Kannada)
+)
+
+[2025-08-31 10:34:41] Processed duration: 0 minutes
+[2025-08-31 10:34:41] Processed release_date: 2025-09-02
+[2025-08-31 10:34:41] Content added successfully with release_date: 2025-09-02
+[2025-08-31 10:36:45] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 8
+    [title] => Mirzapur
+    [description] => AA
+    [main_category_id] => 1
+    [category_id] => 1
+    [language_id] => 6
+    [preference_id] => 1
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 0
+    [release_date] => 2025-09-02
+    [plan] => free
+    [industry] => Sandalwood (South - Kannada)
+    [status] => active
+)
+
+[2025-08-31 10:36:45] Processed duration: 0 minutes
+[2025-08-31 10:36:45] Processed release_date: 2025-09-02
+[2025-08-31 10:36:45] Content updated successfully with release_date: 2025-09-02
+[2025-08-31 10:37:53] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 8
+    [title] => Mirzapur
+    [description] => AAA
+    [main_category_id] => 1
+    [category_id] => 1
+    [language_id] => 6
+    [preference_id] => 1
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 90
+    [release_date] => 2025-09-02
+    [plan] => free
+    [industry] => Sandalwood (South - Kannada)
+    [status] => active
+)
+
+[2025-08-31 10:37:53] Processed duration: 0 minutes
+[2025-08-31 10:37:53] Processed release_date: 2025-09-02
+[2025-08-31 10:37:53] Content updated successfully with release_date: 2025-09-02
+[2025-08-31 10:39:21] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 8
+    [title] => Mirzapur
+    [description] => Check
+    [main_category_id] => 1
+    [category_id] => 1
+    [language_id] => 6
+    [preference_id] => 1
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 0
+    [release_date] => 2025-09-02
+    [plan] => free
+    [industry] => Sandalwood (South - Kannada)
+    [status] => active
+)
+
+[2025-08-31 10:39:21] Processed duration: 0 minutes
+[2025-08-31 10:39:21] Processed release_date: 2025-09-02
+[2025-08-31 10:39:21] Content updated successfully with release_date: 2025-09-02
+[2025-08-31 10:41:27] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 7
+    [title] => The Doorman
+    [description] => <p>A woman returns from combat and befriends a family in NYC. A gang of thieves plot to take the family\\\\\\\\\\\\\\\'s valuables, and she is all that stands between them and their lives</p>
+    [main_category_id] => 3
+    [category_id] => 18
+    [language_id] => 5
+    [preference_id] => 1
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 100
+    [release_date] => 2025-09-06
+    [plan] => free
+    [industry] => International
+    [status] => active
+)
+
+[2025-08-31 10:41:27] Processed duration: 0 minutes
+[2025-08-31 10:41:27] Processed release_date: 2025-09-06
+[2025-08-31 10:41:27] Content updated successfully with release_date: 2025-09-06
+[2025-08-31 10:42:00] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [main_category_id] => 1
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 900
+    [release_date] => 2025-09-26
+    [plan] => free
+    [industry] => Hollywood
+    [status] => active
+)
+
+[2025-08-31 10:42:00] Processed duration: 0 minutes
+[2025-08-31 10:42:00] Processed release_date: 2025-09-26
+[2025-08-31 10:42:00] Content updated successfully with release_date: 2025-09-26
+[2025-08-31 10:42:59] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [main_category_id] => 1
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 10
+    [release_date] => 2025-09-26
+    [plan] => free
+    [industry] => Hollywood
+    [status] => active
+)
+
+[2025-08-31 10:42:59] Processed duration: 0 minutes
+[2025-08-31 10:42:59] Processed release_date: 2025-09-26
+[2025-08-31 10:42:59] Content updated successfully with release_date: 2025-09-26
+[2025-08-31 10:44:53] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [main_category_id] => 1
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 100
+    [release_date] => 2025-09-26
+    [plan] => free
+    [industry] => Hollywood
+    [status] => active
+)
+
+[2025-08-31 10:44:53] Processed duration: 0 minutes
+[2025-08-31 10:44:53] Processed release_date: 2025-09-26
+[2025-08-31 10:44:53] Content updated successfully with release_date: 2025-09-26
+[2025-08-31 10:46:00] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on top</p><p>&nbsp;</p>
+    [main_category_id] => 1
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 90
+    [release_date] => 2025-09-26
+    [plan] => free
+    [industry] => Hollywood
+    [status] => active
+)
+
+[2025-08-31 10:46:00] Processed duration: 90 minutes
+[2025-08-31 10:46:00] Processed release_date: 2025-09-26
+[2025-08-31 10:46:00] Content updated successfully with release_date: 2025-09-26
+[2025-08-31 10:46:17] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 7
+    [title] => The Doorman
+    [description] => <p>A woman returns from combat and befriends a family in NYC. A gang of thieves plot to take the family\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\'s valuables, and she is all that stands between them and their lives</p>
+    [main_category_id] => 3
+    [category_id] => 18
+    [language_id] => 5
+    [preference_id] => 1
+    [thumbnail_url] => A
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 30
+    [release_date] => 2025-09-06
+    [plan] => free
+    [industry] => International
+    [status] => active
+)
+
+[2025-08-31 10:46:17] Processed duration: 30 minutes
+[2025-08-31 10:46:17] Processed release_date: 2025-09-06
+[2025-08-31 10:46:17] Content updated successfully with release_date: 2025-09-06
+[2025-08-31 19:10:46] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 5
+    [title] => Rose Garden
+    [description] => AAA
+    [main_category_id] => 1
+    [category_id] => 2
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 2
+    [release_date] => 2025-09-06
+    [plan] => free
+    [industry] => Marathi
+    [status] => active
+)
+
+[2025-08-31 19:10:46] Processed duration: 2 minutes
+[2025-08-31 19:10:46] Processed release_date: 2025-09-06
+[2025-08-31 19:10:46] Content updated successfully with release_date: 2025-09-06
+[2025-08-31 19:10:59] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 6
+    [title] => Once Upon A Time
+    [description] => <p>ghhhh</p>
+    [main_category_id] => 3
+    [category_id] => 9
+    [language_id] => 1
+    [preference_id] => 5
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 25
+    [release_date] => 2025-08-26
+    [plan] => paid
+    [industry] => Hollywood
+    [status] => active
+)
+
+[2025-08-31 19:10:59] Processed duration: 25 minutes
+[2025-08-31 19:10:59] Processed release_date: 2025-08-26
+[2025-08-31 19:10:59] Content updated successfully with release_date: 2025-08-26
+[2025-08-31 19:11:13] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops</p><p>&nbsp;</p>
+    [main_category_id] => 1
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 90
+    [release_date] => 2025-08-23
+    [plan] => paid
+    [industry] => Bhojpuri
+    [status] => active
+)
+
+[2025-08-31 19:11:13] Processed duration: 90 minutes
+[2025-08-31 19:11:13] Processed release_date: 2025-08-23
+[2025-08-31 19:11:13] Content updated successfully with release_date: 2025-08-23
+[2025-09-01 18:19:41] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a psychological duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops bahvesh</p><p>&nbsp;</p>
+    [main_category_id] => 1
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 90
+    [release_date] => 2025-08-23
+    [plan] => paid
+    [industry] => Bhojpuri
+    [status] => active
+)
+
+[2025-09-01 18:19:41] Processed duration: 90 minutes
+[2025-09-01 18:19:41] Processed release_date: 2025-08-23
+[2025-09-01 18:19:41] Content updated successfully with release_date: 2025-08-23
+[2025-09-01 18:20:24] Update Content - POST Data: Array
+(
+    [action] => update_content
+    [content_id] => 4
+    [title] => Kahani
+    [description] => <p>Inspector Pawan Singh is drawn into a <strong>psychological </strong>duel with the enigmatic and seductive Mona. As the lines between truth and lies blur, their dangerous connection spirals into a gripping game of control, obsession, and manipulation, where only one will come out on tops bahvesh</p><p>&nbsp;</p>
+    [main_category_id] => 1
+    [category_id] => 4
+    [language_id] => 1
+    [preference_id] => 1
+    [thumbnail_url] => https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMujesLWftdxM6DVObQ9rW8BOdW8bZAvKUzA&s
+    [trailer_url] => https://youtu.be/yEJQpoHfw0s?list=RDMRtRcTfszjY
+    [duration] => 90
+    [release_date] => 2025-08-23
+    [plan] => paid
+    [industry] => Bhojpuri
+    [status] => active
+)
+
+[2025-09-01 18:20:24] Processed duration: 90 minutes
+[2025-09-01 18:20:24] Processed release_date: 2025-08-23
+[2025-09-01 18:20:24] Content updated successfully with release_date: 2025-08-23
