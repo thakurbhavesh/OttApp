@@ -187,107 +187,113 @@ include 'includes/navbar.php';
     });
 
     // Show content type dropdown when content is selected
-    function showContentTypeDropdown() {
-        var contentId = document.getElementById('content_id').value;
-        var contentTypeSection = document.getElementById('content_type_section');
-        var singleForm = document.getElementById('single_form');
-        var multiForm = document.getElementById('multi_form');
-        if (contentId) {
-            // Check existing content type
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '../api/selectedcontent.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.status === 'success' && response.data.length > 0) {
-                        var isMulti = response.data[0].season_number > 0;
-                        contentTypeSection.style.display = 'block';
-                        singleForm.style.display = 'none';
-                        multiForm.style.display = 'none';
-                        document.getElementById('single_content_id').value = contentId;
-                        document.getElementById('multi_content_id').value = contentId;
-                        document.getElementById('manage_cast_crew_link').href = 'manage_cast_crew.php?content_id=' + contentId;
-                        document.getElementById('manage_cast_crew_link_multi').href = 'manage_cast_crew.php?content_id=' + contentId;
+   // Show content type dropdown when content is selected
+function showContentTypeDropdown() {
+    var contentId = document.getElementById('content_id').value;
+    var contentTypeSection = document.getElementById('content_type_section');
+    var singleForm = document.getElementById('single_form');
+    var multiForm = document.getElementById('multi_form');
+    var contentTypeDropdown = document.getElementById('content_type');
+
+    if (contentId) {
+        // Check existing content type
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../api/selectedcontent.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                contentTypeSection.style.display = 'block';
+                singleForm.style.display = 'none';
+                multiForm.style.display = 'none';
+                document.getElementById('single_content_id').value = contentId;
+                document.getElementById('multi_content_id').value = contentId;
+                document.getElementById('manage_cast_crew_link').href = 'manage_cast_crew.php?content_id=' + contentId;
+                document.getElementById('manage_cast_crew_link_multi').href = 'manage_cast_crew.php?content_id=' + contentId;
+
+                if (response.status === 'success' && response.data.length > 0) {
+                    var isMulti = response.data[0].season_number > 0;
+                    contentTypeDropdown.value = isMulti ? 'multi' : 'single';
+                    contentTypeDropdown.disabled = true; // Disable dropdown if content exists
+                    showContentForm();
+                } else {
+                    contentTypeDropdown.value = ''; // Reset dropdown for new content
+                    contentTypeDropdown.disabled = false; // Enable dropdown for new content
+                }
+            }
+        };
+        xhr.send('action=get_content&content_id=' + contentId);
+    } else {
+        contentTypeSection.style.display = 'none';
+        singleForm.style.display = 'none';
+        multiForm.style.display = 'none';
+        contentTypeDropdown.value = '';
+        contentTypeDropdown.disabled = false;
+        document.getElementById('manage_cast_crew_link').href = 'manage_cast_crew.php?content_id=';
+        document.getElementById('manage_cast_crew_link_multi').href = 'manage_cast_crew.php?content_id=';
+    }
+}
+
+// Show appropriate form based on content type
+function showContentForm() {
+    var contentId = document.getElementById('content_id').value;
+    var contentType = document.getElementById('content_type').value;
+    var singleForm = document.getElementById('single_form');
+    var multiForm = document.getElementById('multi_form');
+
+    if (contentId && contentType) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../api/selectedcontent.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === 'success') {
+                    var hasContent = response.data.length > 0;
+                    var isMulti = hasContent && response.data.some(item => item.season_number > 0);
+
+                    if (hasContent && ((contentType === 'single' && isMulti) || (contentType === 'multi' && !isMulti))) {
+                        alert('Cannot change content type. This content is already ' + (isMulti ? 'multi' : 'single') + '.');
                         document.getElementById('content_type').value = isMulti ? 'multi' : 'single';
-                        showContentForm(); // Auto-select based on existing type
-                    } else {
-                        contentTypeSection.style.display = 'block';
-                        singleForm.style.display = 'none';
+                        return;
+                    }
+
+                    if (contentType === 'single') {
+                        singleForm.style.display = 'block';
                         multiForm.style.display = 'none';
-                        document.getElementById('single_content_id').value = contentId;
-                        document.getElementById('multi_content_id').value = contentId;
-                        document.getElementById('manage_cast_crew_link').href = 'manage_cast_crew.php?content_id=' + contentId;
-                        document.getElementById('manage_cast_crew_link_multi').href = 'manage_cast_crew.php?content_id=' + contentId;
-                    }
-                }
-            };
-            xhr.send('action=get_content&content_id=' + contentId);
-        } else {
-            contentTypeSection.style.display = 'none';
-            singleForm.style.display = 'none';
-            multiForm.style.display = 'none';
-            document.getElementById('manage_cast_crew_link').href = 'manage_cast_crew.php?content_id=';
-            document.getElementById('manage_cast_crew_link_multi').href = 'manage_cast_crew.php?content_id=';
-        }
-    }
-
-    // Show appropriate form based on content type
-    function showContentForm() {
-        var contentId = document.getElementById('content_id').value;
-        var contentType = document.getElementById('content_type').value;
-        var singleForm = document.getElementById('single_form');
-        var multiForm = document.getElementById('multi_form');
-
-        if (contentId) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '../api/selectedcontent.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.status === 'success') {
-                        var isMulti = response.data.some(item => item.season_number > 0);
-                        if ((contentType === 'single' && !isMulti) || (contentType === 'multi' && isMulti)) {
-                            if (contentType === 'single') {
-                                singleForm.style.display = 'block';
-                                multiForm.style.display = 'none';
-                                resetSingleForm();
-                                if (response.data.length > 0) {
-                                    var item = response.data[0];
-                                    document.getElementById('single_id').value = item.id;
-                                    document.getElementById('single_title').value = item.title;
-                                    quill.clipboard.dangerouslyPasteHTML(item.description || '');
-                                    document.getElementById('quill-description').value = item.description || '';
-                                    document.getElementById('single_thumbnail_url').value = item.thumbnail_url;
-                                    document.getElementById('single_video_url').value = item.video_url;
-                                    document.getElementById('single_length').value = item.length;
-                                    document.getElementById('single_release_date').value = item.release_date;
-                                    document.getElementById('single_status').value = item.status;
-                                    document.getElementById('single_button_text').textContent = 'Update Single Content';
-                                    document.querySelector('input[name="action"]').value = 'edit_content';
-                                }
-                            } else if (contentType === 'multi') {
-                                singleForm.style.display = 'none';
-                                multiForm.style.display = 'block';
-                                document.getElementById('season_number').value = '';
-                                document.getElementById('episodes_container').innerHTML = '';
-                                episodeCount = 0;
-                                loadEpisodesForEdit();
-                            }
-                        } else {
-                            alert('Cannot change content type. This content is already ' + (isMulti ? 'multi' : 'single') + '.');
-                            document.getElementById('content_type').value = isMulti ? 'multi' : 'single';
+                        resetSingleForm();
+                        if (response.data.length > 0 && !isMulti) {
+                            var item = response.data[0];
+                            document.getElementById('single_id').value = item.id;
+                            document.getElementById('single_title').value = item.title;
+                            quill.clipboard.dangerouslyPasteHTML(item.description || '');
+                            document.getElementById('quill-description').value = item.description || '';
+                            document.getElementById('single_thumbnail_url').value = item.thumbnail_url;
+                            document.getElementById('single_video_url').value = item.video_url;
+                            document.getElementById('single_length').value = item.length;
+                            document.getElementById('single_release_date').value = item.release_date;
+                            document.getElementById('single_status').value = item.status;
+                            document.getElementById('single_button_text').textContent = 'Update Single Content';
+                            document.querySelector('input[name="action"]').value = 'edit_content';
                         }
+                    } else if (contentType === 'multi') {
+                        singleForm.style.display = 'none';
+                        multiForm.style.display = 'block';
+                        document.getElementById('season_number').value = '';
+                        document.getElementById('episodes_container').innerHTML = '';
+                        episodeCount = 0;
+                        quillInstances = [];
+                        loadEpisodesForEdit();
                     }
                 }
-            };
-            xhr.send('action=get_content&content_id=' + contentId);
-        } else {
-            singleForm.style.display = 'none';
-            multiForm.style.display = 'none';
-        }
+            }
+        };
+        xhr.send('action=get_content&content_id=' + contentId);
+    } else {
+        singleForm.style.display = 'none';
+        multiForm.style.display = 'none';
     }
+}
 
     // Reset single content form for adding new content
     function resetSingleForm() {
