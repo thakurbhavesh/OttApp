@@ -1,10 +1,5 @@
 # Show Home Banner 
 
-Access http://localhost/ott_app/AppApi/show_banner.php
-Filter by status: http://localhost/ott_app/AppApi/show_banner.php?status=active.
-
-
-
 Access http://localhost/ott_app/AppApi/show_content.php (returns active content).
 Filter by banner: http://localhost/ott_app/AppApi/show_content.php?status=active&banner=1 (returns content IDs 4 and 5).
 Filter by top shows: http://localhost/ott_app/AppApi/show_content.php?status=active&top_shows=1 (returns content ID 6).
@@ -70,3 +65,4 @@ Combined filters: GET http://localhost/ott_app/AppApi/all_content_with_cast_crew
 # Show Data Content Wise 
 
 fetch Content ID 5: GET http://localhost/ott_app/AppApi/content_by_id.php?content_id=5
+

@@ -22,9 +22,9 @@ if (!$content_id) {
     exit;
 }
 
-// Build query to fetch content, manage_selected, and cast_crew (no subscription filtering)
+// Build query to fetch content, manage_selected (only active records), and cast_crew
 $query = "SELECT 
-    c.content_id, c.title, c.description, c.category_id, c.thumbnail_url, c.video_url, c.duration, c.release_date, c.created_at, c.status, c.content_type, c.language_id, c.preference_id, c.trailer_url, c.banner, c.top_shows, c.binge_worthy, c.bollywood_binge, c.dubbed_in_hindi, c.plan, c.industry,
+    c.content_id, c.title, c.description, c.category_id, c.thumbnail_url, c.duration, c.release_date, c.created_at, c.status, c.content_type, c.language_id, c.preference_id, c.trailer_url, c.banner, c.top_shows, c.binge_worthy, c.bollywood_binge, c.dubbed_in_hindi, c.plan, c.industry,
     mc.name AS main_category_name, cat.name AS category_name, l.name AS language_name, cp.preference_name,
     ms.id AS manage_selected_id, ms.season_number, ms.episode_number, ms.title AS episode_title, ms.description AS episode_description, ms.thumbnail_url AS episode_thumbnail_url, ms.video_url AS episode_video_url, ms.length, ms.release_date AS episode_release_date, ms.status AS episode_status, ms.created_at AS episode_created_at,
     cc.name AS cast_crew_name, cc.role
@@ -33,7 +33,7 @@ LEFT JOIN categories cat ON c.category_id = cat.category_id
 LEFT JOIN main_categories mc ON cat.main_category_id = mc.category_id
 LEFT JOIN languages l ON c.language_id = l.language_id
 LEFT JOIN content_preferences cp ON c.preference_id = cp.preference_id
-LEFT JOIN manage_selected ms ON c.content_id = ms.content_id
+LEFT JOIN manage_selected ms ON c.content_id = ms.content_id AND ms.status = 'active'
 LEFT JOIN cast_crew cc ON c.content_id = cc.content_id
 WHERE c.content_id = ?";
 
@@ -62,7 +62,6 @@ try {
                 'description' => $row['description'],
                 'category_id' => $row['category_id'],
                 'thumbnail_url' => $row['thumbnail_url'],
-                'video_url' => $row['video_url'],
                 'duration' => $row['duration'],
                 'release_date' => $row['release_date'],
                 'created_at' => $row['created_at'],
@@ -86,7 +85,7 @@ try {
                 'cast_crew' => []
             ];
         }
-        // Aggregate manage_selected data
+        // Aggregate manage_selected data (only active records are included due to query filter)
         if ($row['manage_selected_id']) {
             $manage_selected_data[$row['manage_selected_id']] = [
                 'id' => $row['manage_selected_id'],

@@ -1,6 +1,5 @@
 <?php
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *'); // Allow CORS for testing (adjust in production)
+
 
 include '../api/config.php';
 
