@@ -10,7 +10,8 @@ header('Access-Control-Allow-Origin: *'); // Allow CORS for testing (adjust in p
 include '../api/config.php';
 
 // Function to sanitize input
-function sanitize_input($data) {
+function sanitize_input($data)
+{
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -18,10 +19,11 @@ function sanitize_input($data) {
 }
 
 // Function for basic rate limiting (file-based for localhost)
-function is_rate_limited($ip, $limit = 100, $window = 3600) {
+function is_rate_limited($ip, $limit = 100, $window = 3600)
+{
     $file = 'rate_limit_' . md5($ip) . '.txt';
     $current_time = time();
-    
+
     if (file_exists($file)) {
         $data = json_decode(file_get_contents($file), true);
         if ($data['time'] > $current_time - $window) {
@@ -35,7 +37,7 @@ function is_rate_limited($ip, $limit = 100, $window = 3600) {
     } else {
         $data = ['time' => $current_time, 'count' => 1];
     }
-    
+
     file_put_contents($file, json_encode($data));
     return false;
 }
@@ -70,18 +72,25 @@ if (!$content_id) {
 
 // Build query to fetch content, manage_selected (only active records), and cast_crew
 $query = "SELECT 
-    c.content_id, c.title, c.description, c.category_id, c.thumbnail_url, c.duration, c.release_date, c.created_at, c.status, c.content_type, c.language_id, c.preference_id, c.trailer_url, c.banner, c.top_shows, c.binge_worthy, c.bollywood_binge, c.dubbed_in_hindi, c.plan, c.industry,
-    mc.name AS main_category_name, cat.name AS category_name, l.name AS language_name, cp.preference_name,
-    ms.id AS manage_selected_id, ms.season_number, ms.episode_number, ms.title AS episode_title, ms.description AS episode_description, ms.thumbnail_url AS episode_thumbnail_url, ms.video_url AS episode_video_url, ms.length, ms.release_date AS episode_release_date, ms.status AS episode_status, ms.created_at AS episode_created_at,
-    cc.name AS cast_crew_name, cc.role
-FROM content c
-LEFT JOIN categories cat ON c.category_id = cat.category_id
-LEFT JOIN main_categories mc ON cat.main_category_id = mc.category_id
-LEFT JOIN languages l ON c.language_id = l.language_id
-LEFT JOIN content_preferences cp ON c.preference_id = cp.preference_id
-LEFT JOIN manage_selected ms ON c.content_id = ms.content_id AND ms.status = 'active'
-LEFT JOIN cast_crew cc ON c.content_id = cc.content_id
+    c.content_id, c.title, c.description, c.category_id, c.thumbnail_url, c.duration, 
+    c.release_date, c.created_at, c.status, c.content_type, c.language_id, 
+    c.preference_id, c.trailer_url, c.banner, c.top_shows, c.binge_worthy, 
+    c.bollywood_binge, c.dubbed_in_hindi, c.plan, c.industry, 
+    mc.name AS main_category_name, cat.name AS category_name, l.name AS language_name, cp.preference_name, 
+    ms.id AS manage_selected_id, ms.season_number, ms.episode_number, ms.title AS episode_title, 
+    ms.description AS episode_description, ms.thumbnail_url AS episode_thumbnail_url, 
+    ms.video_url AS episode_video_url, ms.length, ms.release_date AS episode_release_date, 
+    ms.status AS episode_status, ms.created_at AS episode_created_at, 
+    cc.cast_crew_id, cc.name AS cast_crew_name, cc.role, cc.image AS cast_crew_image
+FROM content c 
+LEFT JOIN categories cat ON c.category_id = cat.category_id 
+LEFT JOIN main_categories mc ON cat.main_category_id = mc.category_id 
+LEFT JOIN languages l ON c.language_id = l.language_id 
+LEFT JOIN content_preferences cp ON c.preference_id = cp.preference_id 
+LEFT JOIN manage_selected ms ON c.content_id = ms.content_id AND ms.status = 'active' 
+LEFT JOIN cast_crew cc ON c.content_id = cc.content_id 
 WHERE c.content_id = ?";
+
 
 $params = [$content_id];
 $types = "i";
@@ -147,11 +156,14 @@ try {
                 'created_at' => $row['episode_created_at']
             ];
         }
+
         // Aggregate cast_crew data
         if ($row['cast_crew_name'] && $row['role']) {
             $cast_crew_data[] = [
+                'id' => $row['cast_crew_id'],
                 'name' => $row['cast_crew_name'],
-                'role' => $row['role']
+                'role' => $row['role'],
+                'image' => $row['cast_crew_image']
             ];
         }
     }
@@ -171,4 +183,3 @@ try {
 
 $stmt->close();
 $conn->close();
-?>

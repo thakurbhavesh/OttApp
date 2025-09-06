@@ -60,7 +60,7 @@ function is_rate_limited($ip, $limit = 100, $window = 3600) {
 
 // API key validation
 $api_key = isset($_SERVER['HTTP_X_API_KEY']) ? $_SERVER['HTTP_X_API_KEY'] : (isset($_GET['api_key']) ? $_GET['api_key'] : null);
-$valid_api_key = 'BhaveshSingh'; // Store in config file or environment variable in production
+$valid_api_key = 'your_secure_api_key'; // Store in config file or environment variable in production
 if (!$api_key || $api_key !== $valid_api_key) {
     http_response_code(401);
     echo json_encode(['status' => 'error', 'message' => 'Invalid or missing API key']);
@@ -107,6 +107,7 @@ try {
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Internal server error']);
+    $conn->close();
     exit;
 }
 
@@ -119,6 +120,7 @@ if ($category_id && !in_array($category_id, $valid_categories)) $invalid_params[
 if (!empty($invalid_params)) {
     http_response_code(400);
     echo json_encode(['status' => 'error', 'message' => 'Invalid ' . implode(', ', $invalid_params) . '. Check valid IDs.']);
+    $conn->close();
     exit;
 }
 
@@ -156,12 +158,13 @@ try {
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Internal server error']);
+    $conn->close();
     exit;
 }
 
 // Build main query with filters, joins for category and main category, and pagination
 $query = "SELECT 
-    c.title, c.plan AS plan_type, c.industry, c.release_date, c.status,
+    c.title, c.plan AS plan_type, c.industry, c.status, c.release_date, c.thumbnail_url,
     l.name AS language,
     cp.preference_name AS preference,
     cat.name AS category,
@@ -196,6 +199,7 @@ $params[] = $limit;
 $params[] = $offset;
 $types .= "ii";
 
+$stmt = null; // Initialize $stmt to avoid undefined variable issues
 try {
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
@@ -217,6 +221,7 @@ try {
             'plan_type' => $row['plan_type'],
             'industry' => $row['industry'],
             'release_date' => $row['release_date'],
+            'thumbnail_url' => $row['thumbnail_url'],
             'status' => $row['status']
         ];
     }
@@ -243,8 +248,13 @@ try {
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Internal server error']);
+} finally {
+    // Close statement and connection only if they exist
+    if ($stmt !== null) {
+        $stmt->close();
+    }
+    if (isset($conn) && $conn instanceof mysqli) {
+        $conn->close();
+    }
 }
-
-$stmt->close();
-$conn->close();
 ?>

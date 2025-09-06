@@ -1,4 +1,4 @@
-# Show Home Banner 
+# Show Home Banner  S
 
 Access http://localhost/ott_app/AppApi/show_content.php (returns active content).
 Filter by banner: http://localhost/ott_app/AppApi/show_content.php?api_key=your_secure_api_key&status=active&banner=1 (returns content IDs 4 and 5).
@@ -69,9 +69,9 @@ fetch Content ID 5: GET http://localhost/ott_app/AppApi/content_by_id.php?api_ke
 
 #content List 
 
-http://localhost/ott_app/AppApi/content_list.php?api_key=BhaveshSingh&status=active&limit=1
+http://localhost/ott_app/AppApi/content_list.php?api_key=your_secure_api_key&status=active&limit=1
 
 
 # New release
 
-All active new realese content: GET http://localhost/ott_app/AppApi/new_relaese.php?api_key=your_secure_api_key&status=active
+All active new realese content: GET http://localhost/ott_app/AppApi/new_releases.php?api_key=your_secure_api_key&status=active

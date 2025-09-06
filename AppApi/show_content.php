@@ -18,7 +18,7 @@ function sanitize_input($data) {
 }
 
 // Function for basic rate limiting (file-based for localhost)
-function is_rate_limited($ip, $limit = 100, $window = 3600) {
+function is_rate_limited($ip, $limit = 1000, $window = 3600) {
     $file = 'rate_limit_' . md5($ip) . '.txt';
     $current_time = time();
     
@@ -73,44 +73,65 @@ if (!in_array($status, $valid_statuses)) {
     exit;
 }
 
-// Build query with filters
-$query = "SELECT content_id, title, description, category_id, thumbnail_url, video_url, duration, release_date, created_at, status, content_type, language_id, preference_id, trailer_url, banner, top_shows, binge_worthy, bollywood_binge, dubbed_in_hindi, plan, industry 
-          FROM content 
-          WHERE status = ?";
+// Build query with filters and joins
+$query = "SELECT 
+    c.content_id, 
+    c.title, 
+    c.description, 
+    c.thumbnail_url, 
+    c.video_url, 
+    c.duration, 
+    c.release_date, 
+    c.created_at, 
+    c.status, 
+    c.content_type, 
+    c.plan AS plan_type, 
+    c.industry, 
+    l.name AS language, 
+    cp.preference_name AS preference, 
+    cat.name AS category, 
+    mc.name AS main_category 
+FROM content c 
+LEFT JOIN languages l ON c.language_id = l.language_id 
+LEFT JOIN content_preferences cp ON c.preference_id = cp.preference_id 
+LEFT JOIN categories cat ON c.category_id = cat.category_id 
+LEFT JOIN main_categories mc ON cat.main_category_id = mc.category_id 
+WHERE c.status = ?";
 $params = [$status];
 $types = "s";
 
 if ($banner !== null) {
-    $query .= " AND banner = ?";
+    $query .= " AND c.banner = ?";
     $params[] = $banner;
     $types .= "i";
 }
 
 if ($top_shows !== null) {
-    $query .= " AND top_shows = ?";
+    $query .= " AND c.top_shows = ?";
     $params[] = $top_shows;
     $types .= "i";
 }
 
 if ($binge_worthy !== null) {
-    $query .= " AND binge_worthy = ?";
+    $query .= " AND c.binge_worthy = ?";
     $params[] = $binge_worthy;
     $types .= "i";
 }
 
 if ($bollywood_binge !== null) {
-    $query .= " AND bollywood_binge = ?";
+    $query .= " AND c.bollywood_binge = ?";
     $params[] = $bollywood_binge;
     $types .= "i";
 }
 
 if ($dubbed_in_hindi !== null) {
-    $query .= " AND dubbed_in_hindi = ?";
+    $query .= " AND c.dubbed_in_hindi = ?";
     $params[] = $dubbed_in_hindi;
     $types .= "i";
 }
 
 // Prepare and execute query
+$stmt = null;
 try {
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
@@ -124,19 +145,41 @@ try {
 
     $contents = [];
     while ($row = $result->fetch_assoc()) {
-        $contents[] = $row;
+        $contents[] = [
+            'content_id' => $row['content_id'],
+            'title' => $row['title'],
+            'description' => $row['description'] ?? '',
+            'thumbnail_url' => $row['thumbnail_url'] ?? null,
+            'video_url' => $row['video_url'] ?? null,
+            'duration' => $row['duration'] ?? null,
+            'release_date' => $row['release_date'] ?? null,
+            'created_at' => $row['created_at'] ?? null,
+            'status' => $row['status'],
+            'content_type' => $row['content_type'] ?? null,
+            'plan_type' => $row['plan_type'],
+            'industry' => $row['industry'] ?? 'Unknown',
+            'language' => $row['language'] ?? 'Unknown',
+            'preference' => $row['preference'] ?? 'Unknown',
+            'category' => $row['category'] ?? 'Unknown',
+            'main_category' => $row['main_category'] ?? 'Unknown'
+        ];
     }
 
     if (empty($contents)) {
         echo json_encode(['status' => 'success', 'message' => 'No content found', 'data' => []]);
     } else {
-        echo json_encode(['status' => 'success', 'data' => $contents]);
+        echo json_encode(['status' => 'success', 'data' => $contents], JSON_PRETTY_PRINT);
     }
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
+} finally {
+    // Close statement and connection if they exist
+    if ($stmt !== null) {
+        $stmt->close();
+    }
+    if (isset($conn) && $conn instanceof mysqli) {
+        $conn->close();
+    }
 }
-
-$stmt->close();
-$conn->close();
 ?>
