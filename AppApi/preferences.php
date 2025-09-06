@@ -1,9 +1,13 @@
 <?php
+// Set headers
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); // Allow CORS for testing (adjust in production)
+// In production, restrict to specific origins, e.g.:
+// header('Access-Control-Allow-Origin: https://yourdomain.com');
+// header('Access-Control-Allow-Methods: GET');
+// header('Access-Control-Allow-Headers: X-API-KEY');
 
 include '../api/config.php';
-
 
 // Function to sanitize input
 function sanitize_input($data) {
@@ -13,6 +17,46 @@ function sanitize_input($data) {
     return $data;
 }
 
+// Function for basic rate limiting (file-based for localhost)
+function is_rate_limited($ip, $limit = 100, $window = 3600) {
+    $file = 'rate_limit_' . md5($ip) . '.txt';
+    $current_time = time();
+    
+    if (file_exists($file)) {
+        $data = json_decode(file_get_contents($file), true);
+        if ($data['time'] > $current_time - $window) {
+            if ($data['count'] >= $limit) {
+                return true; // Rate limit exceeded
+            }
+            $data['count']++;
+        } else {
+            $data = ['time' => $current_time, 'count' => 1];
+        }
+    } else {
+        $data = ['time' => $current_time, 'count' => 1];
+    }
+    
+    file_put_contents($file, json_encode($data));
+    return false;
+}
+
+// API key validation
+$api_key = isset($_SERVER['HTTP_X_API_KEY']) ? $_SERVER['HTTP_X_API_KEY'] : (isset($_GET['api_key']) ? $_GET['api_key'] : null);
+$valid_api_key = 'your_secure_api_key'; // Store in config.php or environment variable in production
+if (!$api_key || $api_key !== $valid_api_key) {
+    http_response_code(401);
+    echo json_encode(['status' => 'error', 'message' => 'Invalid or missing API key']);
+    exit;
+}
+
+// Rate limiting check
+$client_ip = $_SERVER['REMOTE_ADDR'];
+if (is_rate_limited($client_ip)) {
+    http_response_code(429);
+    echo json_encode(['status' => 'error', 'message' => 'Rate limit exceeded. Try again later.']);
+    exit;
+}
+
 // Get and sanitize parameters
 $status = isset($_GET['status']) ? sanitize_input($_GET['status']) : 'active';
 $preference_id = isset($_GET['preference_id']) ? (int)sanitize_input($_GET['preference_id']) : null;
@@ -20,14 +64,8 @@ $preference_id = isset($_GET['preference_id']) ? (int)sanitize_input($_GET['pref
 // Validate status
 $valid_statuses = ['active', 'inactive'];
 if (!in_array($status, $valid_statuses)) {
+    http_response_code(400);
     echo json_encode(['status' => 'error', 'message' => 'Invalid status. Use "active" or "inactive".']);
-    exit;
-}
-
-// Validate preference_id (based on your content_preferences table: 1=Adult, 2=Kids, 3=Family, 4=Teen, 5=General)
-$valid_preferences = [1, 2, 3, 4, 5];
-if ($preference_id && !in_array($preference_id, $valid_preferences)) {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid preference ID. Use 1 (Adult), 2 (Kids), 3 (Family), 4 (Teen), or 5 (General).']);
     exit;
 }
 
@@ -67,6 +105,7 @@ try {
         echo json_encode(['status' => 'success', 'data' => $contents]);
     }
 } catch (Exception $e) {
+    http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
 }
 

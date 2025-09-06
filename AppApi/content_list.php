@@ -1,7 +1,7 @@
 <?php
 // Set headers
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *'); // Allow CORS for testing (adjust in production)
+header('Access-Control-Allow-Origin: *'); // Allow all origins for localhost testing
 // In production, restrict to specific origins, e.g.:
 // header('Access-Control-Allow-Origin: https://yourdomain.com');
 // header('Access-Control-Allow-Methods: GET');
@@ -11,7 +11,10 @@ include '../api/config.php';
 
 // Function to sanitize input
 function sanitize_input($data) {
-    return htmlspecialchars(stripslashes(trim($data)));
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 
 // Function to fetch valid IDs from a table
@@ -21,10 +24,14 @@ function fetch_valid_ids($conn, $table, $id_column, $status_column = null) {
         $query .= " WHERE $status_column = 'active'";
     }
     $result = $conn->query($query);
+    if ($result === false) {
+        throw new Exception("Failed to fetch IDs from $table");
+    }
     $ids = [];
     while ($row = $result->fetch_assoc()) {
         $ids[] = (int)$row[$id_column];
     }
+    $result->free();
     return $ids;
 }
 
@@ -53,7 +60,7 @@ function is_rate_limited($ip, $limit = 100, $window = 3600) {
 
 // API key validation
 $api_key = isset($_SERVER['HTTP_X_API_KEY']) ? $_SERVER['HTTP_X_API_KEY'] : (isset($_GET['api_key']) ? $_GET['api_key'] : null);
-$valid_api_key = 'your_secure_api_key'; // Store in config.php or environment variable in production
+$valid_api_key = 'BhaveshSingh'; // Store in config file or environment variable in production
 if (!$api_key || $api_key !== $valid_api_key) {
     http_response_code(401);
     echo json_encode(['status' => 'error', 'message' => 'Invalid or missing API key']);
@@ -73,7 +80,9 @@ $status = isset($_GET['status']) ? sanitize_input($_GET['status']) : 'active';
 $language_id = isset($_GET['language_id']) ? (int)sanitize_input($_GET['language_id']) : null;
 $preference_id = isset($_GET['preference_id']) ? (int)sanitize_input($_GET['preference_id']) : null;
 $category_id = isset($_GET['category_id']) ? (int)sanitize_input($_GET['category_id']) : null;
-$main_category_id = isset($_GET['main_category_id']) ? (int)sanitize_input($_GET['main_category_id']) : null;
+$limit = isset($_GET['limit']) ? (int)sanitize_input($_GET['limit']) : 10; // Default limit
+$page = isset($_GET['page']) ? (int)sanitize_input($_GET['page']) : 1; // Default page
+$offset = ($page - 1) * $limit;
 
 // Validate status
 $valid_statuses = ['active', 'inactive'];
@@ -83,18 +92,29 @@ if (!in_array($status, $valid_statuses)) {
     exit;
 }
 
+// Validate limit
+if ($limit < 1 || $limit > 100) {
+    http_response_code(400);
+    echo json_encode(['status' => 'error', 'message' => 'Limit must be between 1 and 100.']);
+    exit;
+}
+
 // Fetch valid IDs dynamically from database
-$valid_languages = fetch_valid_ids($conn, 'languages', 'language_id', 'status');
-$valid_preferences = fetch_valid_ids($conn, 'content_preferences', 'preference_id', 'status');
-$valid_categories = fetch_valid_ids($conn, 'categories', 'category_id', 'status');
-$valid_main_categories = fetch_valid_ids($conn, 'main_categories', 'category_id', 'status');
+try {
+    $valid_languages = fetch_valid_ids($conn, 'languages', 'language_id', 'status');
+    $valid_preferences = fetch_valid_ids($conn, 'content_preferences', 'preference_id', 'status');
+    $valid_categories = fetch_valid_ids($conn, 'categories', 'category_id', 'status');
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['status' => 'error', 'message' => 'Internal server error']);
+    exit;
+}
 
 // Validate IDs
 $invalid_params = [];
 if ($language_id && !in_array($language_id, $valid_languages)) $invalid_params[] = "language_id";
 if ($preference_id && !in_array($preference_id, $valid_preferences)) $invalid_params[] = "preference_id";
 if ($category_id && !in_array($category_id, $valid_categories)) $invalid_params[] = "category_id";
-if ($main_category_id && !in_array($main_category_id, $valid_main_categories)) $invalid_params[] = "main_category_id";
 
 if (!empty($invalid_params)) {
     http_response_code(400);
@@ -102,22 +122,55 @@ if (!empty($invalid_params)) {
     exit;
 }
 
-// Build query with filters and select only requested fields
+// Count total records for pagination
+$count_query = "SELECT COUNT(*) AS total FROM content WHERE status = ?";
+$count_params = [$status];
+$count_types = "s";
+
+if ($language_id) {
+    $count_query .= " AND language_id = ?";
+    $count_params[] = $language_id;
+    $count_types .= "i";
+}
+if ($preference_id) {
+    $count_query .= " AND preference_id = ?";
+    $count_params[] = $preference_id;
+    $count_types .= "i";
+}
+if ($category_id) {
+    $count_query .= " AND category_id = ?";
+    $count_params[] = $category_id;
+    $count_types .= "i";
+}
+
+try {
+    $count_stmt = $conn->prepare($count_query);
+    if ($count_stmt === false) {
+        throw new Exception("Prepare failed for count query");
+    }
+    $count_stmt->bind_param($count_types, ...$count_params);
+    $count_stmt->execute();
+    $count_result = $count_stmt->get_result();
+    $total_records = $count_result->fetch_assoc()['total'];
+    $count_stmt->close();
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['status' => 'error', 'message' => 'Internal server error']);
+    exit;
+}
+
+// Build main query with filters, joins for category and main category, and pagination
 $query = "SELECT 
-    c.title, c.thumbnail_url, c.trailer_url,
-    l.name AS language_name,
-    cp.preference_name,
-    cat.name AS category_name,
-    mc.name AS main_category_name,
-    ms.season_number, ms.episode_number, ms.title AS episode_title, ms.description AS episode_description, 
-    ms.thumbnail_url AS episode_thumbnail_url, ms.video_url AS episode_video_url, ms.length AS episode_length, 
-    ms.release_date AS episode_release_date, ms.status AS episode_status
+    c.title, c.plan AS plan_type, c.industry, c.release_date, c.status,
+    l.name AS language,
+    cp.preference_name AS preference,
+    cat.name AS category,
+    mc.name AS main_category
 FROM content c
 LEFT JOIN languages l ON c.language_id = l.language_id
 LEFT JOIN content_preferences cp ON c.preference_id = cp.preference_id
 LEFT JOIN categories cat ON c.category_id = cat.category_id
 LEFT JOIN main_categories mc ON cat.main_category_id = mc.category_id
-LEFT JOIN manage_selected ms ON c.content_id = ms.content_id AND ms.status = 'active'
 WHERE c.status = ?";
 $params = [$status];
 $types = "s";
@@ -137,16 +190,16 @@ if ($category_id) {
     $params[] = $category_id;
     $types .= "i";
 }
-if ($main_category_id) {
-    $query .= " AND cat.main_category_id = ?";
-    $params[] = $main_category_id;
-    $types .= "i";
-}
+
+$query .= " LIMIT ? OFFSET ?";
+$params[] = $limit;
+$params[] = $offset;
+$types .= "ii";
 
 try {
     $stmt = $conn->prepare($query);
     if ($stmt === false) {
-        throw new Exception("Prepare failed: " . $conn->error);
+        throw new Exception("Prepare failed");
     }
 
     $stmt->bind_param($types, ...$params);
@@ -155,48 +208,41 @@ try {
 
     $contents = [];
     while ($row = $result->fetch_assoc()) {
-        $title = $row['title']; // Use title as a unique key for simplicity
-        if (!isset($contents[$title])) {
-            $contents[$title] = [
-                'title' => $row['title'],
-                'thumbnail_url' => $row['thumbnail_url'],
-                'trailer_url' => $row['trailer_url'],
-                'language_name' => $row['language_name'],
-                'preference_name' => $row['preference_name'],
-                'category_name' => $row['category_name'],
-                'main_category_name' => $row['main_category_name'],
-                'episodes' => []
-            ];
-        }
-
-        // Add episode if exists (only active episodes due to query filter)
-        if (!empty($row['episode_title'])) {
-            $contents[$title]['episodes'][] = [
-                'season_number' => $row['season_number'],
-                'episode_number' => $row['episode_number'],
-                'title' => $row['episode_title'],
-                'description' => $row['episode_description'],
-                'thumbnail_url' => $row['episode_thumbnail_url'],
-                'video_url' => $row['episode_video_url'],
-                'length' => $row['episode_length'],
-                'release_date' => $row['episode_release_date'],
-                'status' => $row['episode_status']
-            ];
-        }
+        $contents[] = [
+            'title' => $row['title'],
+            'main_category' => $row['main_category'],
+            'category' => $row['category'],
+            'language' => $row['language'],
+            'preference' => $row['preference'],
+            'plan_type' => $row['plan_type'],
+            'industry' => $row['industry'],
+            'release_date' => $row['release_date'],
+            'status' => $row['status']
+        ];
     }
 
-    $contents = array_values($contents); // Reset array keys
+    // Prepare pagination metadata
+    $total_pages = ceil($total_records / $limit);
+    $response = [
+        'status' => 'success',
+        'data' => $contents,
+        'pagination' => [
+            'total_records' => $total_records,
+            'current_page' => $page,
+            'total_pages' => $total_pages,
+            'limit' => $limit
+        ]
+    ];
 
     if (empty($contents)) {
-        echo json_encode(['status' => 'success', 'message' => 'No content found with the selected filters', 'data' => []], JSON_PRETTY_PRINT);
-    } else {
-        echo json_encode(['status' => 'success', 'data' => $contents], JSON_PRETTY_PRINT);
+        $response['message'] = 'No content found with the selected filters';
     }
+
+    echo json_encode($response, JSON_PRETTY_PRINT);
 
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Internal server error']);
-    exit;
 }
 
 $stmt->close();

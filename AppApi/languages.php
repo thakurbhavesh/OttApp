@@ -1,6 +1,11 @@
 <?php
+// Set headers
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); // Allow CORS for testing (adjust in production)
+// In production, restrict to specific origins, e.g.:
+// header('Access-Control-Allow-Origin: https://yourdomain.com');
+// header('Access-Control-Allow-Methods: GET');
+// header('Access-Control-Allow-Headers: X-API-KEY');
 
 include '../api/config.php';
 
@@ -12,6 +17,46 @@ function sanitize_input($data) {
     return $data;
 }
 
+// Function for basic rate limiting (file-based for localhost)
+function is_rate_limited($ip, $limit = 100, $window = 3600) {
+    $file = 'rate_limit_' . md5($ip) . '.txt';
+    $current_time = time();
+    
+    if (file_exists($file)) {
+        $data = json_decode(file_get_contents($file), true);
+        if ($data['time'] > $current_time - $window) {
+            if ($data['count'] >= $limit) {
+                return true; // Rate limit exceeded
+            }
+            $data['count']++;
+        } else {
+            $data = ['time' => $current_time, 'count' => 1];
+        }
+    } else {
+        $data = ['time' => $current_time, 'count' => 1];
+    }
+    
+    file_put_contents($file, json_encode($data));
+    return false;
+}
+
+// API key validation
+$api_key = isset($_SERVER['HTTP_X_API_KEY']) ? $_SERVER['HTTP_X_API_KEY'] : (isset($_GET['api_key']) ? $_GET['api_key'] : null);
+$valid_api_key = 'your_secure_api_key'; // Store in config.php or environment variable in production
+if (!$api_key || $api_key !== $valid_api_key) {
+    http_response_code(401);
+    echo json_encode(['status' => 'error', 'message' => 'Invalid or missing API key']);
+    exit;
+}
+
+// Rate limiting check
+$client_ip = $_SERVER['REMOTE_ADDR'];
+if (is_rate_limited($client_ip)) {
+    http_response_code(429);
+    echo json_encode(['status' => 'error', 'message' => 'Rate limit exceeded. Try again later.']);
+    exit;
+}
+
 // Get and sanitize parameters
 $status = isset($_GET['status']) ? sanitize_input($_GET['status']) : 'active';
 $language_id = isset($_GET['language_id']) ? (int)sanitize_input($_GET['language_id']) : null;
@@ -19,16 +64,11 @@ $language_id = isset($_GET['language_id']) ? (int)sanitize_input($_GET['language
 // Validate status
 $valid_statuses = ['active', 'inactive'];
 if (!in_array($status, $valid_statuses)) {
+    http_response_code(400);
     echo json_encode(['status' => 'error', 'message' => 'Invalid status. Use "active" or "inactive".']);
     exit;
 }
 
-// Validate language_id (based on your languages table: 1=Hindi, 2=English, 3=Punjabi, 4=Kannada, 5=Malayalam, 6=Telugu, 7=Bhojpuri)
-$valid_languages = [1, 2, 3, 4, 5, 6, 7];
-if ($language_id && !in_array($language_id, $valid_languages)) {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid language ID. Use 1 (Hindi), 2 (English), 3 (Punjabi), 4 (Kannada), 5 (Malayalam), 6 (Telugu), or 7 (Bhojpuri).']);
-    exit;
-}
 
 // Build query with filters
 $query = "SELECT c.content_id, c.title, c.description, c.category_id, c.thumbnail_url, c.video_url, c.duration, c.release_date, c.created_at, c.status, c.content_type, c.language_id, c.preference_id, c.trailer_url, c.banner, c.top_shows, c.binge_worthy, c.bollywood_binge, c.dubbed_in_hindi, c.plan, c.industry, l.name AS language_name 
@@ -66,6 +106,7 @@ try {
         echo json_encode(['status' => 'success', 'data' => $contents]);
     }
 } catch (Exception $e) {
+    http_response_code(500);
     echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
 }
 
