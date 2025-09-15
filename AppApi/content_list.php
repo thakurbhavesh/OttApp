@@ -6,7 +6,6 @@ header('Access-Control-Allow-Origin: *'); // Allow all origins for localhost tes
 // header('Access-Control-Allow-Origin: https://yourdomain.com');
 // header('Access-Control-Allow-Methods: GET');
 // header('Access-Control-Allow-Headers: X-API-KEY');
-
 include '../api/config.php';
 
 // Function to sanitize input

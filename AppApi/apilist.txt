@@ -1,8 +1,8 @@
 # Show Home Banner  S
 
-Access http://localhost/ott_app/AppApi/show_content.php (returns active content).
-Filter by banner: http://localhost/ott_app/AppApi/show_content.php?api_key=your_secure_api_key&status=active&banner=1 (returns content IDs 4 and 5).
-Filter by top shows: http://localhost/ott_app/AppApi/show_content.php?api_key=your_secure_api_key&status=active&top_shows=1 (returns content ID 6).
+Access http://10.205.61.40/ott_app/AppApi/show_content.php (returns active content).
+Filter by banner: http://10.205.61.40/ott_app/AppApi/show_content.php?api_key=your_secure_api_key&status=active&banner=1 (returns content IDs 4 and 5).
+Filter by top shows: http://10.205.61.40/ott_app/AppApi/show_content.php?api_key=your_secure_api_key&status=active&top_shows=1 (returns content ID 6).
 
 "banner"
 "top_shows"
@@ -13,65 +13,65 @@ Filter by top shows: http://localhost/ott_app/AppApi/show_content.php?api_key=yo
 # Show Data Paid Or Free
 
 
-All active content: GET http://localhost/ott_app/AppApi/plan_types.php?api_key=your_secure_api_key&status=active
-Free plan content: GET http://localhost/ott_app/AppApi/plan_types.php?api_key=your_secure_api_key&status=active&plan=free
-Paid plan content: GET http://localhost/ott_app/AppApi/plan_types.php?api_key=your_secure_api_key&status=active&plan=paid
+All active content: GET http://10.205.61.40/ott_app/AppApi/plan_types.php?api_key=your_secure_api_key&status=active
+Free plan content: GET http://10.205.61.40/ott_app/AppApi/plan_types.php?api_key=your_secure_api_key&status=active&plan=free
+Paid plan content: GET http://10.205.61.40/ott_app/AppApi/plan_types.php?api_key=your_secure_api_key&status=active&plan=paid
 
 # Show Data Industry Wise 
 
 
-All active content: GET http://localhost/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active
-Hollywood content: GET http://localhost/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active&industry=Hollywood
-Bollywood content: GET http://localhost/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active&industry=Bollywood
-Punjabi content: GET http://localhost/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active&industry=Punjabi
+All active content: GET http://10.205.61.40/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active
+Hollywood content: GET http://10.205.61.40/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active&industry=Hollywood
+Bollywood content: GET http://10.205.61.40/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active&industry=Bollywood
+Punjabi content: GET http://10.205.61.40/ott_app/AppApi/industries.php?api_key=your_secure_api_key&status=active&industry=Punjabi
 
 # Show Data Language Wise
 
 
-All active content: GET http://localhost/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active
-Hindi content: GET http://localhost/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=1
-English content: GET http://localhost/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=2
-Punjabi content: GET http://localhost/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=3
-Marathi content: GET http://localhost/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=4
+All active content: GET http://10.205.61.40/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active
+Hindi content: GET http://10.205.61.40/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=1
+English content: GET http://10.205.61.40/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=2
+Punjabi content: GET http://10.205.61.40/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=3
+Marathi content: GET http://10.205.61.40/ott_app/AppApi/languages.php?api_key=your_secure_api_key&status=active&language_id=4
 
 # Show Data Prefernce Wise
 
-All active content: GET http://localhost/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active
-Adult content: GET http://localhost/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=1
-Kids content: GET http://localhost/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=2
-Family content: GET http://localhost/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=3
-Teen content: GET http://localhost/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=4
-General content: GET http://localhost/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=5
+All active content: GET http://10.205.61.40/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active
+Adult content: GET http://10.205.61.40/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=1
+Kids content: GET http://10.205.61.40/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=2
+Family content: GET http://10.205.61.40/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=3
+Teen content: GET http://10.205.61.40/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=4
+General content: GET http://10.205.61.40/ott_app/AppApi/preferences.php?api_key=your_secure_api_key&status=active&preference_id=5
 
 
 
 
-All active content: GET http://localhost/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active
-Hindi content: GET http://localhost/ott_app/AppApi/all_content.phpapi_key=your_secure_api_key&?status=active&language_id=1
-Adult content: GET http://localhost/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&preference_id=1
-Action category content: GET http://localhost/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&category_id=1
-Movies main category content: GET http://localhost/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&main_category_id=3
-Combined filters: GET http://localhost/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&language_id=1&preference_id=1
+All active content: GET http://10.205.61.40/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active
+Hindi content: GET http://10.205.61.40/ott_app/AppApi/all_content.phpapi_key=your_secure_api_key&?status=active&language_id=1
+Adult content: GET http://10.205.61.40/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&preference_id=1
+Action category content: GET http://10.205.61.40/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&category_id=1
+Movies main category content: GET http://10.205.61.40/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&main_category_id=3
+Combined filters: GET http://10.205.61.40/ott_app/AppApi/all_content.php?api_key=your_secure_api_key&status=active&language_id=1&preference_id=1
 
 
-All active content: GET http://localhost/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active
-Hindi content: GET http://localhost/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&language_id=1
-Adult content: GET http://localhost/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&preference_id=1
-Action category content: GET http://localhost/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&category_id=1
-Movies main category content: GET http://localhost/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&main_category_id=3
-Combined filters: GET http://localhost/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&language_id=1&preference_id=1
+All active content: GET http://10.205.61.40/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active
+Hindi content: GET http://10.205.61.40/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&language_id=1
+Adult content: GET http://10.205.61.40/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&preference_id=1
+Action category content: GET http://10.205.61.40/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&category_id=1
+Movies main category content: GET http://10.205.61.40/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&main_category_id=3
+Combined filters: GET http://10.205.61.40/ott_app/AppApi/all_content_with_cast_crew.php?api_key=your_secure_api_key&status=active&language_id=1&preference_id=1
 
 
 # Show Data Content Wise 
 
-fetch Content ID 5: GET http://localhost/ott_app/AppApi/content_by_id.php?api_key=your_secure_api_key&content_id=5
+fetch Content ID 5: GET http://10.205.61.40/ott_app/AppApi/content_by_id.php?api_key=your_secure_api_key&content_id=5
 
 
 #content List 
 
-http://localhost/ott_app/AppApi/content_list.php?api_key=your_secure_api_key&status=active&limit=1
+http://10.205.61.40/ott_app/AppApi/content_list.php?api_key=your_secure_api_key&status=active&limit=1
 
 
 # New release
 
-All active new realese content: GET http://localhost/ott_app/AppApi/new_releases.php?api_key=your_secure_api_key&status=active
+All active new realese content: GET http://10.205.61.40/ott_app/AppApi/new_releases.php?api_key=your_secure_api_key&status=active
