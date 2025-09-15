@@ -46,6 +46,8 @@
     });
     $(document).ready(function() {
         $('#allTable').DataTable();
+    });$(document).ready(function() {
+        $('#allUsers').DataTable();
     });
 </script>
 
