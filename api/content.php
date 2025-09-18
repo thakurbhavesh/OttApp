@@ -216,6 +216,22 @@ if ($action == 'toggle_top_shows') {
     $stmt->close();
 }
 
+// New toggle_catchme_tv_originals action
+if ($action == 'toggle_catchme_tv_originals') {
+    $content_id = (int)$_POST['content_id'];
+    $new_catchme_tv_originals = (int)$_POST['new_catchme_tv_originals'];
+
+    $query = "UPDATE content SET catchme_tv_originals = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_catchme_tv_originals, $content_id);
+
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'CATCHME TV Originals status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update CATCHME TV Originals status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
 
 // New toggle_binge_worthy action
 if ($action == 'toggle_binge_worthy') {
@@ -267,6 +283,120 @@ if ($action == 'toggle_dubbed_in_hindi') {
         exit;
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Failed to update Dubbed In Hindi status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_bhojpuri_films') {
+    $content_id = (int)$_POST['content_id'];
+    $new_bhojpuri_films = (int)$_POST['new_bhojpuri_films'];
+    $query = "UPDATE content SET bhojpuri_films = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_bhojpuri_films, $content_id);
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'BHOJPURI FILMS status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update BHOJPURI FILMS status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_daily_shows') {
+    $content_id = (int)$_POST['content_id'];
+    $new_daily_shows = (int)$_POST['new_daily_shows'];
+    $query = "UPDATE content SET daily_shows = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_daily_shows, $content_id);
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'DAILY SHOWS status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update DAILY SHOWS status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_villain_baba_show') {
+    $content_id = (int)$_POST['content_id'];
+    $new_villain_baba_show = (int)$_POST['new_villain_baba_show'];
+    $query = "UPDATE content SET villain_baba_show = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_villain_baba_show, $content_id);
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'THE VILLAIN BABA SHOW status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update THE VILLAIN BABA SHOW status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_no1_vertical_shows') {
+    $content_id = (int)$_POST['content_id'];
+    $new_no1_vertical_shows = (int)$_POST['new_no1_vertical_shows'];
+    $query = "UPDATE content SET no1_vertical_shows = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_no1_vertical_shows, $content_id);
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'NO 1 VERTICAL SHOWS status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update NO 1 VERTICAL SHOWS status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_all_in_one_podcast') {
+    $content_id = (int)$_POST['content_id'];
+    $new_all_in_one_podcast = (int)$_POST['new_all_in_one_podcast'];
+
+    $query = "UPDATE content SET all_in_one_podcast = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_all_in_one_podcast, $content_id);
+
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'ALL IN ONE PODCAST status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update ALL IN ONE PODCAST status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_satrak_raho') {
+    $content_id = (int)$_POST['content_id'];
+    $new_satrak_raho = (int)$_POST['new_satrak_raho'];
+    $query = "UPDATE content SET satrak_raho = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_satrak_raho, $content_id);
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'SATRAK RAHO status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update SATRAK RAHO status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_top_web_series') {
+    $content_id = (int)$_POST['content_id'];
+    $new_top_web_series = (int)$_POST['new_top_web_series'];
+    $query = "UPDATE content SET top_web_series = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_top_web_series, $content_id);
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'TOP WEB SERIES status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update TOP WEB SERIES status: ' . $conn->error]);
+    }
+    $stmt->close();
+}
+
+if ($action == 'toggle_top_short_films') {
+    $content_id = (int)$_POST['content_id'];
+    $new_top_short_films = (int)$_POST['new_top_short_films'];
+    $query = "UPDATE content SET top_short_films = ? WHERE content_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $new_top_short_films, $content_id);
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'TOP SHORT FILMS status updated successfully']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Failed to update TOP SHORT FILMS status: ' . $conn->error]);
     }
     $stmt->close();
 }

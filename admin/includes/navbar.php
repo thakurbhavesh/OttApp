@@ -37,10 +37,18 @@
                     <ul class="dropdown-menu" aria-labelledby="manageDropdown">
                         <li><a class="dropdown-item" href="../admin/manage_home_banner.php">Manage Home Banner</a></li>
                         <li><a class="dropdown-item" href="../admin/manage_home_topshows.php">Manage Home Top Shows</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_catchme_tv_originals.php">Manage Catchme Tv Original</a></li>
                         <li><a class="dropdown-item" href="../admin/manage_binge_worthy.php">Manage Home Binge Worthy</a></li>
                         <li><a class="dropdown-item" href="../admin/manage_bollywood_binge.php">Manage Home Bollywood Binge</a></li>
                         <li><a class="dropdown-item" href="../admin/manage_dubbed.php">Manage Home Hindi Dubbed</a></li>
-                        
+                        <li><a class="dropdown-item" href="../admin/manage_bhojpuri_films.php">Manage Home Bhojpuri</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_daily_shows.php">Manage Home Daily Shows</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_villain_baba_show.php">Manage Home The Villain Baba Show</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_no1_vertical_shows.php">Manage Home No 1 Vertical Shows</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_satrak_raho.php">Manage Home Satrak Raho</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_top_web_series.php">Manage Home Top Web Series</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_top_short_films.php">Manage Home Top Short Films</a></li>
+                        <li><a class="dropdown-item" href="../admin/manage_all_in_one_podcast.php">Manage Home All In One Podcast</a></li>
                     </ul>
                 </li>
 

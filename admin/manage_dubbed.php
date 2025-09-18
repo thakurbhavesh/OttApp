@@ -56,7 +56,8 @@ include '../api/config.php';
                                         JOIN categories cat ON c.category_id = cat.category_id 
                                         LEFT JOIN languages l ON c.language_id = l.language_id 
                                         LEFT JOIN content_preferences cp ON c.preference_id = cp.preference_id 
-                                        WHERE c.status = 'active'");
+                                        WHERE c.status = 'active' and c.language_id = 1
+                                        ORDER BY c.release_date DESC");
                 if ($result) {
                     while ($row = $result->fetch_assoc()) {
                         $status_class = $row['status'] == 'active' ? 'status-active' : 'status-inactive';

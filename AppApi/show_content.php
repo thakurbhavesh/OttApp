@@ -1,4 +1,8 @@
 <?php
+// Enable error reporting for debugging (remove in production)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Set headers
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); // Allow CORS for testing (adjust in production)
@@ -64,6 +68,15 @@ $top_shows = isset($_GET['top_shows']) ? (int)sanitize_input($_GET['top_shows'])
 $binge_worthy = isset($_GET['binge_worthy']) ? (int)sanitize_input($_GET['binge_worthy']) : null;
 $bollywood_binge = isset($_GET['bollywood_binge']) ? (int)sanitize_input($_GET['bollywood_binge']) : null;
 $dubbed_in_hindi = isset($_GET['dubbed_in_hindi']) ? (int)sanitize_input($_GET['dubbed_in_hindi']) : null;
+$all_in_one_podcast = isset($_GET['all_in_one_podcast']) ? (int)sanitize_input($_GET['all_in_one_podcast']) : null;
+$top_web_series = isset($_GET['top_web_series']) ? (int)sanitize_input($_GET['top_web_series']) : null;
+$top_short_films = isset($_GET['top_short_films']) ? (int)sanitize_input($_GET['top_short_films']) : null;
+$catchme_tv_originals = isset($_GET['catchme_tv_originals']) ? (int)sanitize_input($_GET['catchme_tv_originals']) : null;
+$daily_shops = isset($_GET['daily_shops']) ? (int)sanitize_input($_GET['daily_shops']) : null;
+$villain_baba_show = isset($_GET['villain_baba_show']) ? (int)sanitize_input($_GET['villain_baba_show']) : null;
+$no1_vertical_shows = isset($_GET['no1_vertical_shows']) ? (int)sanitize_input($_GET['no1_vertical_shows']) : null;
+$satrak_raho = isset($_GET['satrak_raho']) ? (int)sanitize_input($_GET['satrak_raho']) : null;
+$bhojpuri_films = isset($_GET['bhojpuri']) ? (int)sanitize_input($_GET['bhojpuri']) : null; // Updated to match column name
 
 // Validate status
 $valid_statuses = ['active', 'inactive'];
@@ -130,6 +143,60 @@ if ($dubbed_in_hindi !== null) {
     $types .= "i";
 }
 
+if ($all_in_one_podcast !== null) {
+    $query .= " AND c.all_in_one_podcast = ?";
+    $params[] = $all_in_one_podcast;
+    $types .= "i";
+}
+
+if ($top_web_series !== null) {
+    $query .= " AND c.top_web_series = ?";
+    $params[] = $top_web_series;
+    $types .= "i";
+}
+
+if ($top_short_films !== null) {
+    $query .= " AND c.top_short_films = ?";
+    $params[] = $top_short_films;
+    $types .= "i";
+}
+
+if ($catchme_tv_originals !== null) {
+    $query .= " AND c.catchme_tv_originals = ?";
+    $params[] = $catchme_tv_originals;
+    $types .= "i";
+}
+
+if ($daily_shops !== null) {
+    $query .= " AND c.daily_shops = ?";
+    $params[] = $daily_shops;
+    $types .= "i";
+}
+
+if ($villain_baba_show !== null) {
+    $query .= " AND c.villain_baba_show = ?";
+    $params[] = $villain_baba_show;
+    $types .= "i";
+}
+
+if ($no1_vertical_shows !== null) {
+    $query .= " AND c.no1_vertical_shows = ?";
+    $params[] = $no1_vertical_shows;
+    $types .= "i";
+}
+
+if ($satrak_raho !== null) {
+    $query .= " AND c.satrak_raho = ?";
+    $params[] = $satrak_raho;
+    $types .= "i";
+}
+
+if ($bhojpuri_films !== null) {
+    $query .= " AND c.bhojpuri_films = ?";
+    $params[] = $bhojpuri_films;
+    $types .= "i";
+}
+
 // Prepare and execute query
 $stmt = null;
 try {
@@ -172,7 +239,9 @@ try {
     }
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
+    $error_message = 'Database error: ' . $e->getMessage();
+    file_put_contents('api_errors.log', date('Y-m-d H:i:s') . ' - ' . $error_message . "\n", FILE_APPEND);
+    echo json_encode(['status' => 'error', 'message' => $error_message]);
 } finally {
     // Close statement and connection if they exist
     if ($stmt !== null) {

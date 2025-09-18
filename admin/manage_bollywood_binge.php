@@ -44,6 +44,7 @@ include '../api/config.php';
                     <th>Category</th>
                     <th>Language</th>
                     <th>Preference</th>
+                    <th>industry</th>
                     <th>Release Date</th>
                     <th>Bollywood Binge Status</th>
                     <th>Actions</th>
@@ -56,7 +57,8 @@ include '../api/config.php';
                                         JOIN categories cat ON c.category_id = cat.category_id 
                                         LEFT JOIN languages l ON c.language_id = l.language_id 
                                         LEFT JOIN content_preferences cp ON c.preference_id = cp.preference_id 
-                                        WHERE c.status = 'active'");
+                                        WHERE c.status = 'active' and c.industry = 'Bollywood'
+                                        ORDER BY c.release_date DESC");
                 while ($row = $result->fetch_assoc()) {
                     $status_class = $row['status'] == 'active' ? 'status-active' : 'status-inactive';
                     $banner_class = $row['banner'] == 1 ? 'banner-active' : 'banner-inactive';
@@ -70,6 +72,7 @@ include '../api/config.php';
                         <td>" . htmlspecialchars($row['category_name']) . "</td>
                         <td>" . htmlspecialchars($row['language_name'] ?? 'N/A') . "</td>
                         <td>" . htmlspecialchars($row['preference_name'] ?? 'N/A') . "</td>
+                        <td>" . htmlspecialchars($row['industry'] ?? 'N/A') . "</td>
                         <td>" . htmlspecialchars($row['release_date']) . "</td>
                         <td class='$bollywood_binge_class'>$bollywood_binge_text</td>
                         <td>
